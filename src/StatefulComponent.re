@@ -10,8 +10,8 @@ let component = ReasonReact.reducerComponent("SomeStatefulComponent");
 
 let make = _children => {
   ...component,
-  /* Define a reducer method that states action and state */
   initialState: () => {counter: 0},
+  /* Define a reducer method that states action and state */
   reducer: (action, state) =>
     /* Do pattern matching of all defined actions
        to Update (Reason's setState and action creator) */
