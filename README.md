@@ -16,3 +16,9 @@
 14. Fetching and handling JSON - ReasonReact meets world
 15. Router comes included!
 16. Search for Reason bindings to use popular npm libraries
+
+## How to run the Routing app
+1. `cd reasonreact-routing-tip`
+2. `npx http-server`
+3. Open up the given ip address
+  * We need to have a valid url for Reason to create a `history state object`
