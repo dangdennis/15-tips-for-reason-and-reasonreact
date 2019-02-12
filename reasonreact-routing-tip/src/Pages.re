@@ -19,19 +19,6 @@ let reducer = (route: route, state) =>
   | (route, _) => ReasonReact.Update({route: route})
   };
 
-let urlToRoute = (url: ReasonReact.Router.url) =>
-  switch (url.path) {
-  | [""]
-  | []
-  | ["/"] => Home
-  | ["page1"] => Page1
-  | ["page2"] => Page2
-  | ["page3"] => Page3
-  | ["nested", "page4"] => Page4
-  | ["auth", wildCard] => WildCardPage(wildCard)
-  | _ => NotFound
-  };
-
 let component = ReasonReact.reducerComponent("App");
 
 let make = _children => {

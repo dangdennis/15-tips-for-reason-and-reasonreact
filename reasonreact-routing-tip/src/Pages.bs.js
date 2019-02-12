@@ -15,57 +15,6 @@ function reducer(route, _) {
   return /* Update */Block.__(0, [/* record */[/* route */route]]);
 }
 
-function urlToRoute(url) {
-  var match = url[/* path */0];
-  if (match) {
-    switch (match[0]) {
-      case "" : 
-      case "/" : 
-          if (match[1]) {
-            return /* NotFound */5;
-          } else {
-            return /* Home */0;
-          }
-      case "auth" : 
-          var match$1 = match[1];
-          if (match$1 && !match$1[1]) {
-            return /* WildCardPage */[match$1[0]];
-          } else {
-            return /* NotFound */5;
-          }
-      case "nested" : 
-          var match$2 = match[1];
-          if (match$2 && match$2[0] === "page4" && !match$2[1]) {
-            return /* Page4 */4;
-          } else {
-            return /* NotFound */5;
-          }
-      case "page1" : 
-          if (match[1]) {
-            return /* NotFound */5;
-          } else {
-            return /* Page1 */1;
-          }
-      case "page2" : 
-          if (match[1]) {
-            return /* NotFound */5;
-          } else {
-            return /* Page2 */2;
-          }
-      case "page3" : 
-          if (match[1]) {
-            return /* NotFound */5;
-          } else {
-            return /* Page3 */3;
-          }
-      default:
-        return /* NotFound */5;
-    }
-  } else {
-    return /* Home */0;
-  }
-}
-
 var component = ReasonReact.reducerComponent("App");
 
 function make() {
@@ -158,7 +107,6 @@ function make() {
 
 exports.str = str;
 exports.reducer = reducer;
-exports.urlToRoute = urlToRoute;
 exports.component = component;
 exports.make = make;
 /* component Not a pure module */
