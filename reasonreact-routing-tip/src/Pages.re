@@ -11,11 +11,10 @@ type route =
 
 type state = {route};
 
-type action =
-  | ChangeRoute(route);
+type action;
 
-let reducer = (route: route, state) =>
-  switch (route, state) {
+let reducer = (action, state) =>
+  switch (action, state) {
   | (route, _) => ReasonReact.Update({route: route})
   };
 

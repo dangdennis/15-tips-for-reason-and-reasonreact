@@ -11,8 +11,8 @@ function str(prim) {
   return prim;
 }
 
-function reducer(route, _) {
-  return /* Update */Block.__(0, [/* record */[/* route */route]]);
+function reducer(action, _) {
+  return /* Update */Block.__(0, [/* record */[/* route */action]]);
 }
 
 var component = ReasonReact.reducerComponent("App");
