@@ -11,8 +11,8 @@ function str(prim) {
   return prim;
 }
 
-function reducer(action, _) {
-  return /* Update */Block.__(0, [/* record */[/* route */action[0]]]);
+function reducer(route, _) {
+  return /* Update */Block.__(0, [/* record */[/* route */route]]);
 }
 
 function urlToRoute(url) {
@@ -76,7 +76,38 @@ function make() {
           /* willReceiveProps */component[/* willReceiveProps */3],
           /* didMount */(function (self) {
               var watchId = ReasonReact.Router[/* watchUrl */1]((function (url) {
-                      return Curry._1(self[/* send */3], /* ChangeRoute */[urlToRoute(url)]);
+                      var match = url[/* path */0];
+                      var tmp;
+                      if (match) {
+                        switch (match[0]) {
+                          case "" : 
+                          case "/" : 
+                              tmp = match[1] ? /* NotFound */5 : /* Home */0;
+                              break;
+                          case "auth" : 
+                              var match$1 = match[1];
+                              tmp = match$1 && !match$1[1] ? /* WildCardPage */[match$1[0]] : /* NotFound */5;
+                              break;
+                          case "nested" : 
+                              var match$2 = match[1];
+                              tmp = match$2 && match$2[0] === "page4" && !match$2[1] ? /* Page4 */4 : /* NotFound */5;
+                              break;
+                          case "page1" : 
+                              tmp = match[1] ? /* NotFound */5 : /* Page1 */1;
+                              break;
+                          case "page2" : 
+                              tmp = match[1] ? /* NotFound */5 : /* Page2 */2;
+                              break;
+                          case "page3" : 
+                              tmp = match[1] ? /* NotFound */5 : /* Page3 */3;
+                              break;
+                          default:
+                            tmp = /* NotFound */5;
+                        }
+                      } else {
+                        tmp = /* Home */0;
+                      }
+                      return Curry._1(self[/* send */3], tmp);
                     }));
               return Curry._1(self[/* onUnmount */4], (function () {
                             return ReasonReact.Router[/* unwatchUrl */2](watchId);

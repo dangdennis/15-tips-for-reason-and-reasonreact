@@ -14,9 +14,9 @@ type state = {route};
 type action =
   | ChangeRoute(route);
 
-let reducer = (action, _state) =>
-  switch (action) {
-  | ChangeRoute(route) => ReasonReact.Update({route: route})
+let reducer = (route: route, state) =>
+  switch (route, state) {
+  | (route, _) => ReasonReact.Update({route: route})
   };
 
 let urlToRoute = (url: ReasonReact.Router.url) =>
@@ -41,7 +41,7 @@ let make = _children => {
   /* Inside the make function of a React component */
   didMount: self => {
     let watchId =
-    /* Re.React gives us Router API */
+      /* Re.React gives us Router API */
       ReasonReact.Router.watchUrl(url =>
         self.send(
           /* url.search, url.hash is also available */
